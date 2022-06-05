@@ -1,5 +1,45 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+/* base styles */
+* {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  list-style: none;
+  font-family: "Quicksand";
+  color: #333;
+}
+
+html {
+  /* 10px = (100/16) * 10 = 62.5% */
+  font-size: 62.5%;
+}
+
+.nav-bar {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
+.nav-bar h1 {
+  color: #f1356d;
+  font-size: 3.2rem;
+}
+.nav-bar .nav-links {
+  font-size: 1.6rem;
+  margin-left: auto;
+  display: flex;
+  gap: 1.6rem;
+}
+.nav-bar .nav-links a {
+  text-decoration: none;
+}
+.nav-bar .nav-links a:hover {
+  color: #f1356d;
+}
+.content {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 1rem;
 }

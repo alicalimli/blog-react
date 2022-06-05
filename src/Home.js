@@ -1,49 +1,26 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([
-    {
-      title: "Day 1 of Learning React",
-      body: "Here's what i've learned in my day 1",
-      author: "Ali Calimli",
-      id: 1,
-    },
-    {
-      title: "Day 1 of Learning React",
-      body: "Here's what i've learned in my day 1",
-      author: "Ali Calimli",
-      id: 2,
-    },
-    {
-      title: "Day 1 of Learning React",
-      body: "Here's what i've learned in my day 1",
-      author: "Ali Calimli",
-      id: 3,
-    },
-    {
-      title: "Day 1 of Learning React",
-      body: "Here's what i've learned in my day 1",
-      author: "Ali Calimli",
-      id: 4,
-    },
-  ]);
+  const [blogs, setBlogs] = useState(null);
 
-  const deleteBlog = function (blogId) {
-    const newBlogs = blogs.filter((blogData) => blogData.id !== blogId);
-    console.log(blogId);
-    setBlogs(newBlogs);
-  };
+  const dataFetch = async function(url){
+    const response = await fetch(url);
+    const results = await response.json();
+
+    return results;
+  }
+
+  useEffect(async () =>{
+    setBlogs(await dataFetch('http://localhost:8000/blogs'))
+  }, [])
 
   return (
     <div className="home-page">
       <div className="blog-container">
-        <BlogList
-          blogs={blogs}
-          title="All the Blogs"
-          deleteBlog={deleteBlog}
-        ></BlogList>
+        {}
+        {blogs && <BlogList blogs={blogs} title="All the Blogs"/> }
       </div>
     </div>
   );

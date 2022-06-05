@@ -5,13 +5,34 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  border: none;
   font-family: "Quicksand";
-  color: #333;
+  color: white;
+}
+
+body {
+  background-color: #111;
 }
 
 html {
   /* 10px = (100/16) * 10 = 62.5% */
   font-size: 62.5%;
+}
+
+button {
+  padding: 1rem 2rem;
+  background-color: #f1356d;
+  color: black;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+h1 {
+  font-size: 3.8rem;
 }
 
 .nav-bar {

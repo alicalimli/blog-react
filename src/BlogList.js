@@ -8,7 +8,7 @@ const BlogList = ({ blogs, title, deleteBlog }) => {
       <div className="blog-list">
         {blogs.map((blogData) => (
           <div className="blog-preview" key={blogData.id}>
-            <h2>{title}</h2>
+            <h2>{blogData.title}</h2>
             <p>Author {blogData.author}</p>
             <button onClick={() => deleteBlog(blogData.id)}>Delete</button>
           </div>

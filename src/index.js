@@ -1,9 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import React from "react";
+import { createRoot } from "react-dom/cjs/react-dom.production.min";
+import { StrictMode } from "react/cjs/react.production.min";
+import App from "./App";
+import "./index.css";
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
 );

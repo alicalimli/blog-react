@@ -22,21 +22,19 @@ const Home = () => {
     }
   }
 
-  useEffect(async () =>{
-    try{
+  useEffect(() =>{
       setErrorMessage(null)
-      
-      const blogDatas = await dataFetch('http://localhost:8000/blogs');
 
-      setBlogs(await blogDatas);
-
-      blogDatas.then(setIsPending(false));
-    }
-    catch(error){
-      console.log(error)
-      setErrorMessage(error.message);
-      setIsPending(false)
-    }
+      dataFetch('http://localhost:8000/blogss')
+      .then((blogData)=> {
+        setErrorMessage(null)
+        setBlogs(blogData)
+      })
+      .then(()=> setIsPending(false))
+      .catch((error)=> {
+        setErrorMessage(error.message);
+        setIsPending(false);
+      })
   }, [])
 
   return (

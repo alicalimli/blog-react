@@ -1,24 +1,32 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Create = () => {
 
   const [title,setTitle] = useState("")
   const [body,setBody] = useState("")
   const [author,setAuthor] = useState("mario")
+  const [isPending, setIsPending] = useState(false)
+  const history = useNavigate();
 
   const submitBlog = function(e){
     e.preventDefault();
 
     const blogData = {title,body,author}
+    setIsPending(true)
 
-    fetch("http://localhost:8000/blogs", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(blogData),
-    })
-
-    console.log("blog successfully added")
+    setTimeout(()=>{
+      fetch("http://localhost:8000/blogs", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(blogData),
+      }).then(()=>{
+        setIsPending(false)
+        console.log("blog successfully added")
+        history('/')
+      })
+    },1000)
   }
 
   return ( 
@@ -43,7 +51,9 @@ const Create = () => {
           <option value="mario">mario</option>
           <option value="yoshi">yoshi</option>
         </select>
-        <button>Add Blog</button>
+        {!isPending && <button>Add Blog</button>}
+        {isPending && <button disabled>Adding Blog...</button>}
+        
       </form>
     </div>
   );

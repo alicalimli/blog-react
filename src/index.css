@@ -38,6 +38,10 @@ h1 {
   font-size: 3.8rem;
 }
 
+a{
+  color: #f1356d;
+}
+
 .nav-bar {
   padding: 2rem;
   display: flex;
@@ -72,7 +76,6 @@ h1 {
 .blog-preview {
   padding: 1rem 1.6rem;
   margin: 2rem 0;
-  border-bottom: 1px solid #fafafa;
 }
 .blog-preview:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);

@@ -9,7 +9,16 @@ const Create = () => {
 
   const submitBlog = function(e){
     e.preventDefault();
-    console.log({title,body,author})
+
+    const blogData = {title,body,author}
+
+    fetch("http://localhost:8000/blogs", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(blogData),
+    })
+
+    console.log("blog successfully added")
   }
 
   return ( 

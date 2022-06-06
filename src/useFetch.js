@@ -21,18 +21,23 @@ const useFetch = function(url){
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() =>{
+      const abortControl = new window.AbortController();
+
       setErrorMessage(null)
 
-      dataFetch(url)
+      dataFetch(url, {signal: abortControl})
       .then((data)=> {
         setErrorMessage(null)
         setData(data)
       })
       .then(()=> setIsPending(false))
       .catch((error)=> {
+        if(error.name === "AbortError") return;
         setErrorMessage(error.message);
         setIsPending(false);
       })
+
+      return(() => abortControl.abort())
   }, [])
 
   return {data, isPending, errorMessage};

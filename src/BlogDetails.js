@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useNavigate} from "react-router-dom";
+import { useParams, useNavigate, Link} from "react-router-dom";
 import useFetch from "./useFetch";
 
 const BlogDetails = () => {
@@ -17,6 +17,7 @@ const BlogDetails = () => {
       {isPending && <h2>Loading...</h2> }
       {blogData && (
         <article className="blog-container">
+          <span><Link to="/">Home</Link> / Blog</span>
           <div className="blog-title-container">
             <h1 className="blog-title">{blogData.title}</h1>
             <p className="blog-author">Author: {blogData.author}</p>

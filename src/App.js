@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Home from "./Home";
 import Navbar from "./Navbar";
 import Create from "./Create";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -11,14 +11,10 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <div className="content">
-            <Switch>
-              <Route exact path="/">
-                <Home></Home>
-              </Route>
-              <Route path="/create">
-                <Create></Create>
-              </Route>
-            </Switch>
+            <Routes>
+              <Route exact path="/" element={<Home />}></Route>
+              <Route path="/create" element={<Create />}></Route>
+            </Routes>
           </div>
         </div>
       </Router>

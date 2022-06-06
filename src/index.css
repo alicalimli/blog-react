@@ -23,6 +23,7 @@ html {
 
 button {
   padding: 1rem 2rem;
+  margin-top: 2rem;
   background-color: #f1356d;
   color: black;
   cursor: pointer;
@@ -73,10 +74,19 @@ a{
 }
 
 /* blog previews / list */
-.blog-preview {
-  padding: 1rem 1.6rem;
-  margin: 2rem 0;
+
+.blog-list{
+  margin-top: 3rem;
+  display:flex;
+  flex-direction: column;
+  gap:1.6rem;
 }
+.blog-preview {
+  padding:1rem 2rem;
+  background-color: rgb(27, 27, 27);
+  border-radius: 5px;
+}
+
 .blog-preview:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 }
